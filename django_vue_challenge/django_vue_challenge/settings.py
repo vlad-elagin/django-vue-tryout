@@ -31,12 +31,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # django stuff
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # mongo wirings
+
+
+    # pomodoros
+
 ]
 
 MIDDLEWARE = [
@@ -75,8 +82,11 @@ WSGI_APPLICATION = 'django_vue_challenge.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': 'pomodoros',
+        'HOST': '127.0.0.1',
+        'PORT': 28028,
+        'ENFORSE_SCHEMA': True,
     }
 }
 

@@ -1,1 +1,5 @@
+# ignore compiled python files
 *.pyc
+
+# ignore local installation of mongo database
+mongo-v3.6
