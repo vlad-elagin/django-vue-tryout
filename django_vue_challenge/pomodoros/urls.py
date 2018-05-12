@@ -3,8 +3,8 @@
 """
 
 from django.urls import path
-from .views import index
+from .views import pomodoros_list
 
 urlpatterns = [
-    path('pomodoros/', index),
+    path('pomodoros/', pomodoros_list),
 ]

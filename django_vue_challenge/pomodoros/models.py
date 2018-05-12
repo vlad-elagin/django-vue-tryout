@@ -1,5 +1,10 @@
 from djongo import models
-from django.db.models import TextField, IntegerField, DateTimeField
+from django.db.models import (
+    TextField,
+    IntegerField,
+    DateTimeField,
+    BooleanField,
+)
 
 # Create your models here.
 class Pomodoro(models.Model):
@@ -11,6 +16,7 @@ class Pomodoro(models.Model):
 
     # data that depends on user settings
     duration = IntegerField()
+    is_finished = BooleanField(default=False)
 
     # return id if adressed
     def __str__(self):
