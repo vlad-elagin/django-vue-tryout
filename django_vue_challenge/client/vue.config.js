@@ -12,7 +12,7 @@ module.exports = {
             .tap(options =>
               merge(options, {
                 import: [
-                  path.resolve(__dirname, 'src/assets/global.styl')
+                  path.resolve(__dirname, 'src/assets/vars.styl')
                 ],
               })
             );

@@ -2,7 +2,7 @@
   <header>
     <span class="heading">Pomodoro Timer</span>
     <div>
-      <a href="#">Login</a>
+      <div class="btn btn-bordered">Log In</div>
     </div>
   </header>
 </template>
