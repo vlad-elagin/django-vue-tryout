@@ -3,3 +3,6 @@
 
 # ignore local installation of mongo database
 mongo-v3.6
+
+# ignore migrations
+**/migrations/*

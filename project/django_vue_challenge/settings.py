@@ -33,7 +33,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # pomodoros
-    'pomodoros.apps.PomodorosConfig',
+    'pomodoros',
+
+    # todos
+    'todos',
 ]
 
 MIDDLEWARE = [
