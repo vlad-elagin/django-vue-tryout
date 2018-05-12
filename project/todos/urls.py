@@ -3,10 +3,10 @@
 """
 # path cant work with regex's, user url
 from django.conf.urls import url
-from .views import todos_list, todo_details
+from todos import views
 
 urlpatterns = [
     # r'^&' is for index route
-    url(r'^$', todos_list),
-    url(r'^(?P<pk>[^/]+)/$', todo_details),
+    url(r'^$', views.TodosList.as_view()),
+    url(r'^(?P<pk>[^/]+)/$', views.TodoDetails.as_view()),
 ]

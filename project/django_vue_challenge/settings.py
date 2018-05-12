@@ -37,6 +37,9 @@ INSTALLED_APPS = [
 
     # todos
     'todos',
+
+    # users
+    'users',
 ]
 
 MIDDLEWARE = [

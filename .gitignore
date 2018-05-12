@@ -6,3 +6,6 @@ mongo-v3.6
 
 # ignore migrations
 **/migrations/*
+
+# ignore mac artifacts
+**/.DS_Store
