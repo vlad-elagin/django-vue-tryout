@@ -19,6 +19,12 @@ module.exports = {
     // add webpack aliases
     config.resolve.alias
       .set('@layout', path.resolve(__dirname, 'src/layout/'))
-      .set('@components', path.resolve(__dirname, 'src/components'))
+      .set('@components', path.resolve(__dirname, 'src/components'));
+    // add proxy for dev server
+    config.devServer.proxy({
+      '/api': {
+        target: 'http://localhost:8000',
+      },
+    });
   }
 }
