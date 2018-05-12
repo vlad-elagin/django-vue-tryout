@@ -13,4 +13,4 @@ djangorestframework = "*"
 python_version = "3.6"
 
 [scripts]
-"start:dev" = "python ./django_vue_challenge/manage.py runserver"
+"start:dev" = "python ./project/manage.py runserver"
