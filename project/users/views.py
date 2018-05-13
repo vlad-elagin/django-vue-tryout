@@ -20,13 +20,13 @@ def signup(request):
     """
         Create new user
     """
+    print ('!!!got request!!!')
 
     serializer = UserSerializer(data=request.POST)
 
     if serializer.is_valid():
         serializer.save()
         return Response(
-            {'details': serializer.data},
             status=status.HTTP_201_CREATED
         )
 

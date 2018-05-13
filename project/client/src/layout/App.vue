@@ -2,7 +2,7 @@
   <div class="container">
     <Header></Header>
 
-    <LoginForm></LoginForm>
+    <router-view></router-view>
   </div>
 </template>
 
