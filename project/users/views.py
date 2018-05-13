@@ -20,9 +20,8 @@ def signup(request):
     """
         Create new user
     """
-    print ('!!!got request!!!')
 
-    serializer = UserSerializer(data=request.POST)
+    serializer = UserSerializer(data=request.data)
 
     if serializer.is_valid():
         serializer.save()

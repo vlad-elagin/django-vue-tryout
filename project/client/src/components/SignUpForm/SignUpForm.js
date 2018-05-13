@@ -11,9 +11,9 @@ export default {
     signMeUpPlease() {
       const { login, pass, confirmPass } = this;
       this.$store.dispatch('USER_SIGN_UP', {
-        login,
-        pass,
-        confirmPass,
+        username: login,
+        password: pass,
+        confirm_password: confirmPass,
       });
       this.login = '';
       this.pass = '';

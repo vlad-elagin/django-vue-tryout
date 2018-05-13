@@ -19,6 +19,7 @@ class UserSerializer(ModelSerializer):
 
     # ensure passwords match
     def validate(self, data):
+
         password = data['password']
         confirm_password = data['confirm_password']
 

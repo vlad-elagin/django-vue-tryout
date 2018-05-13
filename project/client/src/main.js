@@ -3,9 +3,11 @@ import VueRouter from 'vue-router';
 
 import App from '@layout/App.vue'
 import store from './store.js';
-import router from './routes.js';
+import router from '@router';
+import './axiosConfig.js';
 import './global.styl';
 
+// config vue
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 
