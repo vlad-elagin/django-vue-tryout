@@ -3,3 +3,9 @@
 
 # ignore local installation of mongo database
 mongo-v3.6
+
+# ignore mac artifacts
+**/.DS_Store
+
+# ignore migrations
+**/migrations/*
