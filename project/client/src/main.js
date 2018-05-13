@@ -9,7 +9,6 @@ import './global.styl';
 Vue.config.productionTip = false
 Vue.use(VueRouter);
 
-
 new Vue({
   store,
   router,

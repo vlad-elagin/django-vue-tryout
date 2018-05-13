@@ -21,5 +21,9 @@ module.exports = {
       .set('@layout', path.resolve(__dirname, 'src/layout/'))
       .set('@components', path.resolve(__dirname, 'src/components'))
       .set('@actions', path.resolve(__dirname, 'src/actions'));
-  }
+  },
+  // add dev server proxy
+  devServer: {
+    proxy: 'http://localhost:8000',
+  },
 }
