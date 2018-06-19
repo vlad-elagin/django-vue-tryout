@@ -31,10 +31,19 @@ export const signUp = async (context, data) => {
 export const signIn = async (context, data) => {
   const res = await axios({
     method: 'POST',
-    url: '/api/user/signin',
+    url: '/api/user/signin/',
     data,
   });
 
   console.log(res);
+
+  if (res.status !== 200) {
+    context.commit('modal:open', {
+      title: 'Error while signing in',
+      message: 'Big bad python is complaining again:',
+      errors: res.errors,
+    });
+  }
+
   context.commit('user:logged');
 }
