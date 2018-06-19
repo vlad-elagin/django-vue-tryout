@@ -2,7 +2,6 @@ import router from '@router';
 import axios from 'axios';
 
 export const signUp = async (context, data) => {
-  console.log(data);
   let res = await axios({
     method: 'POST',
     url: '/api/user/signup/',
