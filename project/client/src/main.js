@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router';
 
 import App from '@layout/App.vue'
-import store from './store.js';
+import store from './store/store.js';
 import router from '@router';
 import './axiosConfig.js';
 import './global.styl';

@@ -20,7 +20,7 @@ module.exports = {
     config.resolve.alias
       .set('@layout', path.resolve(__dirname, 'src/layout/'))
       .set('@components', path.resolve(__dirname, 'src/components'))
-      .set('@actions', path.resolve(__dirname, 'src/actions'))
+      .set('@actions', path.resolve(__dirname, 'src/store/actions'))
       .set('@router', path.resolve(__dirname, 'src/routes.js'));
   },
   // add dev server proxy

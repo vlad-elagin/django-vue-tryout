@@ -5,6 +5,8 @@ In case I forget it again
   - admin
 ```
 
+## Instructions
+
 To kill existing global mongo process:
 - pgrep mongod
 - kill <process id>
@@ -22,3 +24,8 @@ To run project:
 To run client side:
 - `cd` into `project/client`
 - run `npm run serve`
+
+
+## Development process
+
+I've finished registration part and now trying to make logging in work

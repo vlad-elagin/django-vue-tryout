@@ -8,4 +8,5 @@ from users.views import get_user, signup
 urlpatterns = [
     re_path(r'^$', get_user),
     re_path(r'^signup/', signup),
+    #re_path(r'^signin/', singin),
 ]

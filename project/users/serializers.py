@@ -30,6 +30,7 @@ class UserSerializer(ModelSerializer):
 
     # create user object
     def create(self, validated_data):
+        
         user = UserModel.objects.create(
             username=validated_data['username']
         )

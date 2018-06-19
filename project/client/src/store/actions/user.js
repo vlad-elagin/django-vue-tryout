@@ -2,7 +2,7 @@ import router from '@router';
 import axios from 'axios';
 
 export const signUp = async (context, data) => {
-  let res = await axios({
+  const res = await axios({
     method: 'POST',
     url: '/api/user/signup/',
     data,
@@ -27,3 +27,14 @@ export const signUp = async (context, data) => {
 
   router.push('/login');
 };
+
+export const signIn = async (context, data) => {
+  const res = await axios({
+    method: 'POST',
+    url: '/api/user/signin',
+    data,
+  });
+
+  console.log(res);
+  context.commit('user:logged');
+}

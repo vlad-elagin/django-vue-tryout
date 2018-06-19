@@ -8,11 +8,12 @@ export default {
   },
   methods: {
     logMeInPlease() {
-      console.log('logging');
-      this.$emit('user:login', {
-        login: this.login,
-        pass: this.pass,
+      const { login, pass } = this;
+      this.$store.dispatch('USER_SIGN_IN', {
+        username: login,
+        password: pass,
       });
+
       this.login = '';
       this.pass = '';
     }
