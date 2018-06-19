@@ -35,15 +35,22 @@ export const signIn = async (context, data) => {
     data,
   });
 
-  console.log(res);
-
   if (res.status !== 200) {
     context.commit('modal:open', {
       title: 'Error while signing in',
       message: 'Big bad python is complaining again:',
       errors: res.errors,
     });
+    return;
   }
 
-  context.commit('user:logged');
+  context.commit('user:logged', {
+    username: res.data.user,
+    token: res.data.token,
+  });
+}
+
+export const logOut = async (context) => {
+  // TODO perform logout
+  // this route should be protected
 }

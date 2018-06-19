@@ -1,2 +1,9 @@
-// TODO do things
-export const userLogged = state => state.user = 'john doe';
+import router from '../../routes.js';
+
+export const userLogged = (state, params) => {
+  state.user = {
+    ...params,
+  }
+
+  router.push('/timer');
+};
