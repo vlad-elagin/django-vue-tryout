@@ -51,6 +51,17 @@ export const signIn = async (context, data) => {
 }
 
 export const logOut = async (context) => {
-  // TODO perform logout
-  // this route should be protected
+  const res = await axios({
+    method: 'GET',
+    url: '/api/user/logout/',
+  });
+
+  if (res.status !== 200) {
+    context.commit('modal:open', {
+      title: 'Error while logging out',
+      message: 'Your token have probably expired',
+    });
+  }
+
+  context.commit('user:logged_out');
 }

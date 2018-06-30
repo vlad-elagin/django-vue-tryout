@@ -15,6 +15,7 @@ export default {
       //
       // this.login = '';
       // this.pass = '';
+      this.$store.dispatch('USER_SIGN_OUT');
     }
   }
 }

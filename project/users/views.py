@@ -92,3 +92,14 @@ def signin(request):
             {'errors': errors},
             status=status.HTTP_404_NOT_FOUND
         )
+
+@api_view()
+@permission_classes((IsAuthenticated,))
+def logout(request):
+    """
+        Log user out by removing his token
+    """
+    # remove token
+    request.user.auth_token.delete()
+
+    return Response(status=status.HTTP_200_OK)

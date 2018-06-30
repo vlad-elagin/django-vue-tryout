@@ -1,9 +1,11 @@
 import axios from 'axios';
+import store from './store/store.js';
 
-// automatically set headers and add token is logged in
 axios.interceptors.request.use((config) => {
-  // config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-  // add token later
+  // automatically sign requests with token if exists
+  if (store.state.user.token) {
+    config.headers['Authorization'] = `Token ${store.state.user.token}`;
+  }
   return config;
 }, null);
 
