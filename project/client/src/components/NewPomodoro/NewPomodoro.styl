@@ -1,0 +1,38 @@
+.new-pomodoro
+  width 100%
+  height 60px
+
+  display flex
+  align-items center
+  justify-content space-between
+
+  padding 0 10px
+
+  background-color $blue
+  border-radius 10px
+
+  color white
+
+  .left-side
+    display flex
+    align-items center
+
+    // adjust styles of third party dropdown
+    .dropdown
+      width 140px
+      margin 0 10px
+
+    .dropdown-toggle
+      border-color white
+
+    .selected-tag
+      color white
+
+    button.clear
+      display none
+
+    i:before
+      border-color white
+
+    input[type="search"]
+      width 90px !important
