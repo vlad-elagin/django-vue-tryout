@@ -4,6 +4,7 @@
 
     <router-view></router-view>
     <ModalContainer></ModalContainer>
+    <img src="../assets/loli.png" alt="" class="loli">
   </div>
 </template>
 

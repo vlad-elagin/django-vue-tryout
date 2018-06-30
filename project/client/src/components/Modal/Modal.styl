@@ -14,13 +14,21 @@
 .modal
   width 500px
   position fixed
+  z-index 1
   top 50%
   left 50%
-  transform translate(-50%, -50%)
 
   background-color white
   border 2px solid $green
   border-radius 10px
+
+  @keyframes fade-in
+    from
+      transform translate(-65%, -45%)
+    to
+      transform translate(-50%, -50%)
+
+  animation fade-in .3s ease forwards
 
   &-header
     min-height 50px
@@ -37,6 +45,8 @@
 
   &-body
     padding 10px 15px
+    background-color white
+    border-radius 0 0 10px 10px
     ul
       padding 0
       list-style none
@@ -48,3 +58,16 @@
       li:not(.error-field)
         padding-left 10px
         font-size smaller
+
+  &:after
+    content ''
+    position absolute
+    z-index -99
+    top calc(100% - 40px)
+    left -60px
+    //background $green
+
+    width 80px
+    height 80px
+    border-radius 50%
+    border-right 40px solid $green
