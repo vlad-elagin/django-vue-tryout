@@ -21,5 +21,8 @@ export default {
   },
   filters: {
     tinytime: date => tinytime('{H}:{mm}').render(new Date(date)),
-  }
-}
+  },
+  mounted() {
+    this.$store.dispatch('POMODOROS_GET');
+  },
+};

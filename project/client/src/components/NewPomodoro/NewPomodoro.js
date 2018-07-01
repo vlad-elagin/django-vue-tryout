@@ -9,13 +9,11 @@ export default {
   methods: {
     onDurationSelect(newDuration) {
       // sometimes arg is null, dunno why
-      if (newDuration && newDuration !== this.duration) {
-        this.duration = newDuration;
-      }
+      this.duration = newDuration;
     },
     onPomodoroStart(event) {
       event.preventDefault();
-      console.log('starting pomodoro');
+      this.$store.dispatch('POMODOROS_START', { duration: this.duration });
     }
   }
 }

@@ -8,5 +8,10 @@ export default {
     NewPomodoro,
     CurrentPomodoro,
     PomodoroList,
-  }
+  },
+  computed: {
+    pomodoro() {
+      return this.$store.state.pomodoro.id || null;
+    },
+  },
 };

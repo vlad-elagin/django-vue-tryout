@@ -1,7 +1,7 @@
 <template id="TimerPage">
   <div class="timer-page">
-    <NewPomodoro></NewPomodoro>
-    <CurrentPomodoro></CurrentPomodoro>
+    <CurrentPomodoro v-if="pomodoro"></CurrentPomodoro>
+    <NewPomodoro v-else></NewPomodoro>
     <PomodoroList></PomodoroList>
   </div>
 </template>

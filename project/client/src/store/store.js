@@ -11,10 +11,17 @@ const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
 
   // save only user token, we dont need anything else as it is fetched dynamically
-  reducer: (state) => ({ user: {
-    token: state.user.token,
-    username: state.user.username,
-  } }),
+  reducer: (state) => ({
+    user: {
+      token: state.user.token,
+      username: state.user.username,
+    },
+    pomodoro: {
+      id: state.pomodoro.id,
+      started_at: state.pomodoro.started_at,
+      duration: state.pomodoro.duration,
+    },
+  }),
 });
 
 const store = new Vuex.Store({
@@ -27,6 +34,9 @@ const store = new Vuex.Store({
 
     // pomodoros
     pomodorosList: [],
+
+    // current pomodoro
+    pomodoro: {},
   },
   mutations: mutations,
   actions: actions,

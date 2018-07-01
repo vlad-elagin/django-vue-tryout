@@ -1,29 +1,33 @@
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from rest_framework import status
 
 from .models import Pomodoro
 from .serializers import PomodoroSerializer
 
-def index(request):
-    " test api response "
-    return HttpResponse('sup niggaz')
+class PomodorosList(APIView):
+    """
+        Get list and create
+    """
 
-@csrf_exempt
-def pomodoros_list(request):
-    """
-        List all pomodoros, create new
-    """
-    if request.method == 'GET':
-        pomodoros = Pomodoro.objects.all()
+    def get(self, request):
+        """
+            Get pomodoros of current user
+        """
+        pomodoros = Pomodoro.objects.filter(author=request.user.id).order_by('-started_at')
         serializer = PomodoroSerializer(pomodoros, many=True)
-        return JsonResponse(serializer.data, safe=False)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
-    elif request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = PomodoroSerializer(data=data)
+    def post(self, request):
+        """
+            Create new pomodoro for existing user
+        """
+        serializer = PomodoroSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+        return Response(
+            {'errors': serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST
+        )

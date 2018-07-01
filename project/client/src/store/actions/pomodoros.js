@@ -16,3 +16,22 @@ export const getPomodoros = async (context) => {
 
   context.commit('pomodoros:list', res.data);
 };
+
+export const startPomodoro = async (context, data) => {
+  const res = await axios({
+    method: 'POST',
+    url: '/api/pomodoros/',
+    data,
+  });
+
+  if (res.status !== 201) {
+    context.commit('modal:open', {
+      title: 'Oops...',
+      message: 'Big bad python is complaining again',
+      errors: res.errors,
+    });
+    return;
+  }
+
+  context.commit('pomodoros:start', res.data);
+};

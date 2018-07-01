@@ -21,4 +21,4 @@ class Pomodoro(models.Model):
 
     # return id if adressed
     def __str__(self):
-        return self.id
+        return str(self.id)

@@ -2,9 +2,9 @@
     Pomorodos API urls
 """
 
-from django.urls import path
-from .views import pomodoros_list
+from django.urls import re_path
+from .views import PomodorosList
 
 urlpatterns = [
-    path('pomodoros/', pomodoros_list),
+    re_path(r'^$', PomodorosList.as_view()),
 ]

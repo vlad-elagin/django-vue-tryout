@@ -9,7 +9,8 @@ import {
 } from './modal.js';
 
 import {
-  getPomodoros
+  getPomodoros,
+  startPomodoro,
 } from './pomodoros.js';
 
 const actions = {
@@ -20,6 +21,7 @@ const actions = {
   MODAL_OPEN: modalOpen,
 
   POMODOROS_GET: getPomodoros,
+  POMODOROS_START: startPomodoro,
 };
 
 export default actions;
