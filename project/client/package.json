@@ -11,6 +11,8 @@
     "axios": "^0.18.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "tinytime": "^0.2.6",
+    "underscore": "^1.9.1",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "vue-select": "^2.4.0",

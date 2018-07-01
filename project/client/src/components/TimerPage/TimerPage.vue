@@ -2,6 +2,7 @@
   <div class="timer-page">
     <NewPomodoro></NewPomodoro>
     <CurrentPomodoro></CurrentPomodoro>
+    <PomodoroList></PomodoroList>
   </div>
 </template>
 

@@ -24,6 +24,9 @@ const store = new Vuex.Store({
 
     // modal stuff
     modal: null,
+
+    // pomodoros
+    pomodorosList: [],
   },
   mutations: mutations,
   actions: actions,
