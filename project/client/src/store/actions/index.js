@@ -11,6 +11,7 @@ import {
 import {
   getPomodoros,
   startPomodoro,
+  finishPomodoro
 } from './pomodoros.js';
 
 const actions = {
@@ -22,6 +23,7 @@ const actions = {
 
   POMODOROS_GET: getPomodoros,
   POMODOROS_START: startPomodoro,
+  POMODOROS_FINISH: finishPomodoro,
 };
 
 export default actions;

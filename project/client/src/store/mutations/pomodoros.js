@@ -3,6 +3,9 @@ export const gotPomodorosList = (state, params) => {
 }
 
 export const startedPomodoro = (state, params) => {
-  console.log('starting pomodoro with params', params);
   state.pomodoro = params;
+}
+
+export const finishedPomodoro = (state) => {
+  state.pomodoro = {};
 }
