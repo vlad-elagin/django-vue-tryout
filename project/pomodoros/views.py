@@ -33,9 +33,19 @@ class PomodorosList(APIView):
             status=status.HTTP_400_BAD_REQUEST
         )
 
-    # def put(self, request):
-    #     """
-    #         Mark pomodoro as finished, successfully or not
-    #     """
-    #     pomodoro = Pomodoro.objects.get(id=request.data.id)
-    #     pomodoro.status = request.data.status
+    def patch(self, request):
+        """
+            Mark pomodoro as finished, successfully or not
+        """
+        pomodoro = Pomodoro.objects.get(id=request.data['id'])
+        serializer = PomodoroSerializer(pomodoro, data=request.data, partial=True)
+        if serializer.is_valid():
+            print('ok')
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        print(serializer.errors)
+        return Response(
+            {'errors': serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST
+        )

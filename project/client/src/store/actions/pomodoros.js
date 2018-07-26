@@ -13,7 +13,7 @@ export const getPomodoros = async (context) => {
     });
     return;
   }
-  console.log(res.data);
+
   context.commit('pomodoros:list', res.data);
 };
 
@@ -38,15 +38,15 @@ export const startPomodoro = async (context, data) => {
 
 export const finishPomodoro = async (context, { status }) => {
   const res = await axios({
-    method: 'PUT',
+    method: 'PATCH',
     url: '/api/pomodoros/',
     data: {
       id: context.state.pomodoro.id,
-      status,
+      status: status === 'stopped' ? 'failed' : 'finished',
     },
   });
 
-  if (res.status !== 201) {
+  if (res.status !== 200) {
     context.commit('modal:open', {
       title: 'Oops...',
       message: 'Big bad python is complaining again',
@@ -55,5 +55,6 @@ export const finishPomodoro = async (context, { status }) => {
     return;
   }
 
+  context.dispatch('POMODOROS_GET');
   context.commit('pomodoros:finish');
 };

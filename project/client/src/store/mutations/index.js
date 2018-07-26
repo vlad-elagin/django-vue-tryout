@@ -1,6 +1,6 @@
 import { userLogged, userLoggedOut } from './user.js';
 import { modalOpen, modalClose } from './modal.js';
-import { gotPomodorosList, startedPomodoro } from './pomodoros.js';
+import { gotPomodorosList, startedPomodoro, finishedPomodoro } from './pomodoros.js';
 
 const mutations = {
   'user:logged': userLogged,
@@ -10,7 +10,8 @@ const mutations = {
   'modal:close': modalClose,
 
   'pomodoros:list': gotPomodorosList,
-  'pomodoros:start': startedPomodoro
+  'pomodoros:start': startedPomodoro,
+  'pomodoros:finish': finishedPomodoro,
 };
 
 export default mutations;
