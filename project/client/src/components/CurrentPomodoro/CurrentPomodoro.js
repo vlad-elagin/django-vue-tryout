@@ -20,10 +20,10 @@ export default {
       event.preventDefault();
       this.stopTimer();
     },
-    stopTimer() {
+    stopTimer(stop = false) {
       if (this.updateInterval) {
         clearInterval(this.updateInterval);
-        this.$store.dispatch('POMODOROS_FINISH', { status: 'stopped' });
+        this.$store.dispatch('POMODOROS_FINISH', { status: !stop ? 'stopped' : 'finished' });
       }
     }
   },
@@ -50,11 +50,11 @@ export default {
       this.updateInterval = setInterval(() => {
         // check if pomodoro is finished
         const progress = Math.trunc(getPomodoroDuration(pom.started_at, 's') * 100 / (pom.duration * 60));
-        // if (progress >= 100) {
-        //   this.stopTimer();
-        //   // pomodoro is finished!
-        //   this.$store.dispatch('POMODOROS_FINISH', { status: 'finished' });
-        // }
+
+        if (progress === 100) {
+          // pomodoro is finished!
+          this.stopTimer(true);
+        }
 
         // update values
         this.duration = getPomodoroDuration(pom.started_at);

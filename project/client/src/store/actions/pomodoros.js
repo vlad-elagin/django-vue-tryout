@@ -13,7 +13,6 @@ export const getPomodoros = async (context) => {
     });
     return;
   }
-
   context.commit('pomodoros:list', res.data);
 };
 
@@ -33,6 +32,7 @@ export const startPomodoro = async (context, data) => {
     return;
   }
 
+  context.dispatch('POMODOROS_GET');
   context.commit('pomodoros:start', res.data);
 };
 
@@ -53,6 +53,13 @@ export const finishPomodoro = async (context, { status }) => {
       errors: res.errors,
     });
     return;
+  }
+
+  if (status === 'finished' && res.status === 200) {
+    context.commit('modal:open', {
+      title: 'Oooh yes!',
+      message: 'You did it, baby. It\'s time to stretch up a bit and start new pomodoro!',
+    });
   }
 
   context.dispatch('POMODOROS_GET');

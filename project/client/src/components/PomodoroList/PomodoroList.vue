@@ -10,14 +10,12 @@
         <li class="pomodoro-list-item" v-for="(pom) in poms" :key="pom.id">
           <span class="duration">Duration: {{ pom.duration }} minutes</span>
           <span class="started-at">Started: {{ pom.started_at | tinytime }}</span>
-          <span class="finished" v-if="pom.status === 'Finished'">Finished</span>
+          <span class="finished" v-if="pom.status === 'finished'">Finished</span>
           <span class="in-progress" v-else-if="pom.status === 'In progress'">In progress</span>
           <span class="failed" v-else>Failed</span>
         </li>
       </ul>
     </div>
-
-
   </div>
 </template>
 
