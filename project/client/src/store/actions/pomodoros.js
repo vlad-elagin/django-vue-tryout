@@ -13,7 +13,7 @@ export const getPomodoros = async (context) => {
     });
     return;
   }
-
+  console.log(res.data);
   context.commit('pomodoros:list', res.data);
 };
 

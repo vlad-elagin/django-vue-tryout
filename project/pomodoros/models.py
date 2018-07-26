@@ -4,7 +4,7 @@ from django.db.models import (
     TextField,
     IntegerField,
     DateTimeField,
-    BooleanField,
+    CharField,
 )
 
 # Create your models here.
@@ -17,7 +17,17 @@ class Pomodoro(models.Model):
 
     # data that depends on user settings
     duration = IntegerField()
-    is_finished = BooleanField(default=False)
+
+    statuses = (
+        ('in_progress', 'In progress'),
+        ('failed', 'Failed'),
+        ('finished', 'Finished')
+    )
+    status = CharField(
+        max_length=15,
+        choices=statuses,
+        default='In progress'
+    )
 
     # return id if adressed
     def __str__(self):

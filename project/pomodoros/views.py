@@ -22,6 +22,7 @@ class PomodorosList(APIView):
         """
             Create new pomodoro for existing user
         """
+        request.data['author'] = request.user.id
         serializer = PomodoroSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -31,3 +32,10 @@ class PomodorosList(APIView):
             {'errors': serializer.errors},
             status=status.HTTP_400_BAD_REQUEST
         )
+
+    # def put(self, request):
+    #     """
+    #         Mark pomodoro as finished, successfully or not
+    #     """
+    #     pomodoro = Pomodoro.objects.get(id=request.data.id)
+    #     pomodoro.status = request.data.status
