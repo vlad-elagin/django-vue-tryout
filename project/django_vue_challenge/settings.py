@@ -12,7 +12,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l6%ey0ejhc&)i3_8r-2g4k43d69wkki5l@zp05xcm#3okd3c!f'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -87,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'pomodoros',
-        'HOST': '127.0.0.1',
-        'PORT': 28028,
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': int(os.environ.get('DB_PORT')),
         'ENFORSE_SCHEMA': True,
     }
 }
