@@ -86,9 +86,11 @@ WSGI_APPLICATION = 'django_vue_challenge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'pomodoros',
+        'NAME': os.environ.get('DB_NAME'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': int(os.environ.get('DB_PORT')),
+        'USERNAME': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
         'ENFORSE_SCHEMA': True,
     }
 }
