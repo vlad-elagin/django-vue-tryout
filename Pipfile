@@ -8,6 +8,8 @@ django = "*"
 djangorestframework = "*"
 djongo = "*"
 gunicorn = "*"
+whitenoise = "*"
+django-spa = "*"
 
 [dev-packages]
 

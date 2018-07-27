@@ -11,4 +11,7 @@ mongo-v3.6
 **/migrations/*
 
 # ignore dotenv
-project/.env
+.env
+
+# ignore built static files
+project/static

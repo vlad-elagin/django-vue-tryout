@@ -51,12 +51,14 @@ REST_FRAMEWORK = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'spa.middleware.SPAMiddleware',
 ]
 
 ROOT_URLCONF = 'django_vue_challenge.urls'
@@ -87,9 +89,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': os.environ.get('DB_NAME'),
+        'AUTH_SOURCE': os.environ.get('DB_NAME'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': int(os.environ.get('DB_PORT')),
-        'USERNAME': os.environ.get('DB_USER'),
+        'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASS'),
         'ENFORSE_SCHEMA': True,
     }
@@ -132,5 +135,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'client/dist'),
+)
+STATICFILES_STORAGE = 'spa.storage.SPAStaticFilesStorage'
