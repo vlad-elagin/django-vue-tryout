@@ -26,6 +26,16 @@ module.exports = {
   },
   // add dev server proxy
   devServer: {
-    proxy: 'http://localhost:8000',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000'
+      }
+    },
   },
+  // prefix assets pathes
+  configureWebpack: {
+    output: {
+      publicPath: process.env.NODE_ENV === 'production' ? '/static/' : '/',
+    }
+  }
 }

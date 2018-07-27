@@ -132,7 +132,7 @@ USE_L10N = True
 USE_TZ = True
 
 if not DEBUG:
-    ALLOWED_HOSTS = ("django-vue-pomodoro.herokuapp.com",)
+    ALLOWED_HOSTS = ("django-vue-pomodoro.herokuapp.com", 'localhost')
 
 
 # Static files (CSS, JavaScript, Images)
