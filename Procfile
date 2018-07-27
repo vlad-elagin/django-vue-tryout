@@ -1,1 +1,1 @@
-web: sh -c 'cd project/ && python manage.py runserver'
+web: sh -c 'cd project/django_vue_challenge && gunicorn wsgi.py'
