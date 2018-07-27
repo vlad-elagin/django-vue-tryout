@@ -26,6 +26,8 @@ To run client side:
 ## Deployment Instructions (heroku)
 
 - Checkout to 'deploy' branch
+- Adjust client's gitignore so dist folder will be visible
+- Adjust main project gitignore to display static filder
 - Build client app by `cd` into `project/client` and `npm run build`
 - Perform `python ./project/manage.py collectstatic`
 - Commit built app
