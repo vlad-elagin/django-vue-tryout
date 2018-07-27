@@ -1,11 +1,9 @@
-In case I forget it again
-```
-  superuser data is:
-  - admin
-  - admin
-```
+# My Django Vue app for Keenethics
+Dont forget to get .env file! It should be placed in root folder.
+Application requires a db user to be created for it, set your credentials in .env.
 
-## Instructions
+
+## Development Instructions
 
 To kill existing global mongo process:
 - pgrep mongod
@@ -25,10 +23,10 @@ To run client side:
 - `cd` into `project/client`
 - run `npm run serve`
 
-To build client side and place it in static folder
-- `cd` into `project/client`
-- run `npm run build`
+## Deployment Instructions (heroku)
 
-Dont forget to get .env file! It should be placed in root folder.
-
-For now application requires a db user to be created for it, set your credentials in .env.
+- Checkout to 'deploy' branch
+- Build client app by `cd` into `project/client` and `npm run build`
+- Perform `python ./project/manage.py collectstatic`
+- Commit built app
+- Do `git push heroku deploy:master`
